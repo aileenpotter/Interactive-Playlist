@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("rain-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 24px solid #ffffcc;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guitar-img {
+  width: 4500px;
+  max-width: 100%;
+  display: block;
+  margin-top: -80px;
+  vertical-align: bottom;
+}
+
+.hint-text {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #ffffcc;
+  padding: 0.5rem 1rem;
+  margin: -1.5rem 0 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.25s ease;
+}
+
+.overlay.dark {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.tear {
+  position: fixed;
+  pointer-events: none;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+

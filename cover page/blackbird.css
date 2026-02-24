@@ -1,0 +1,142 @@
+body {
+    background: url("blackbird-background.png") no-repeat center center fixed;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.bird-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bird {
+    transition: transform 0.3s ease-out;
+}
+
+.bird-hint {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.3125rem;
+    color: #fff;
+    background: #000;
+    padding: 0.6rem 1.05rem;
+    border-radius: 4px;
+}
+
+.bird:hover {
+    animation: fly 4s ease-in-out infinite;
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(80vw, -25vh) rotate(15deg);
+    }
+}
+
+.note1{
+    transition: all 0.5s;
+    padding-top: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+}
+
+.note1:hover{
+   transform: scale(2);
+    
+  }
+
+  .note2{
+    transition: all 0.3s;
+    padding-top: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+}
+
+.note2:hover{
+   transform: scale(2);
+    
+  }
+  .note1r{
+    transition: all 0.3s;
+    padding-top: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+}
+
+.note1r:hover{
+   transform: scale(2);
+    
+  }
+
+/* Scrolling "learn to fly" – black box, top and bottom */
+.scroll-strip {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    background: #000;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-strip--top {
+    top: 0;
+    bottom: auto;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-track {
+    display: flex;
+    flex-shrink: 0;
+    animation: scroll-text 15s linear infinite;
+}
+
+.scroll-strip--bottom .scroll-track {
+    animation: scroll-text-reverse 15s linear infinite;
+}
+
+.scroll-text {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: rgba(255, 255, 255, 0.95);
+    white-space: nowrap;
+    padding: 0 2rem;
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-12.5%);
+    }
+}
+
+@keyframes scroll-text-reverse {
+    0% {
+        transform: translateX(-12.5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

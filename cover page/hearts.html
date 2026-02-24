@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 9 - Lonely Hearts</title>
+  <link rel="stylesheet" href="hearts.css">
+</head>
+<body>
+  <div class="lonely-column" id="lonely-column"></div>
+  <script>
+    (function () {
+      var col = document.getElementById("lonely-column");
+      for (var i = 0; i < 80; i++) {
+        var span = document.createElement("span");
+        span.className = "lonely-word";
+        span.textContent = "lonely";
+        col.appendChild(span);
+      }
+    })();
+  </script>
+  <script>
+    var minW = 100;
+    var maxW = 1000;
+    var lastSpawn = 0;
+    var throttle = 80;
+    var fadeDelay = 1200;
+
+    function spawnHeart(x, y) {
+      var pct = x / window.innerWidth;
+      var w = Math.round(minW + pct * (maxW - minW));
+      var img = document.createElement("img");
+      img.src = "heart2.png";
+      img.alt = "";
+      img.className = "trail-heart";
+      img.style.left = x + "px";
+      img.style.top = y + "px";
+      img.style.width = w + "px";
+      document.body.appendChild(img);
+
+      setTimeout(function () {
+        img.classList.add("fade-out");
+        setTimeout(function () {
+          if (img.parentNode) img.parentNode.removeChild(img);
+        }, 400);
+      }, fadeDelay);
+    }
+
+    document.addEventListener("mousemove", function (e) {
+      var now = Date.now();
+      if (now - lastSpawn >= throttle) {
+        lastSpawn = now;
+        spawnHeart(e.clientX, e.clientY);
+      }
+    });
+  </script>
+</body>
+</html>

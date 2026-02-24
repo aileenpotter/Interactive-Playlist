@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="planet.css">
+</head>
+<body>
+  <img src="earth1.png" alt="Earth" class="earth-corner">
+  <img src="jupiter2.png" alt="Jupiter" class="jupiter-corner">
+  <img src="mercury.png" alt="Mercury" class="mercury-corner">
+  <img src="neptune.png" alt="Neptune" class="neptune-corner">
+  <div class="title-block" id="title-block">
+    <h1>Across the Universe</h1>
+    <p class="hover-hint">hover for action</p>
+  </div>
+  <script>
+    var titleBlock = document.getElementById('title-block');
+    var body = document.body;
+    titleBlock.addEventListener('mouseenter', function() { body.classList.add('planets-active'); });
+    titleBlock.addEventListener('mouseleave', function() { body.classList.remove('planets-active'); });
+  </script>
+</body>
+</html>

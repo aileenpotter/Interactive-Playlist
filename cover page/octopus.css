@@ -1,0 +1,80 @@
+html {
+  min-height: 100%;
+  background-image: url("sea-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body {
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  min-height: 100vh;
+}
+
+.tentacle-left {
+  position: fixed;
+  left: 80px;
+  bottom: 0;
+  width: 1000px;
+  height: auto;
+  z-index: 1;
+}
+
+.tentacle-center {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 1500px;
+  height: auto;
+  z-index: 1;
+}
+
+.tentacle-right {
+  position: fixed;
+  right: -300px;
+  bottom: 0;
+  width: 1000px;
+  height: auto;
+  z-index: 1;
+}
+
+.tentacle-left,
+.tentacle-center,
+.tentacle-right {
+  cursor: pointer;
+}
+
+.click-prompt {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  padding: 0.75rem 1.25rem;
+  background-color: #b8c5d0;
+  font-family: "Courier New", Courier, monospace;
+  z-index: 10;
+}
+
+.fun-facts {
+  position: fixed;
+  top: 1rem;
+  right: 0;
+  width: 500px;
+  padding: 1rem 1.25rem;
+  background-color: #b8c5d0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  z-index: 10;
+}
+
+.algae {
+  position: fixed;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}

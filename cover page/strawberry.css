@@ -1,0 +1,95 @@
+body {
+    background: url("field.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    overflow: hidden;
+}
+
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fef9c3;
+    padding: 1rem 1.5rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.25rem;
+    text-align: center;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-auto-rows: auto;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    place-items: center;
+    column-gap: 80px;
+    row-gap: 60px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.container > div {
+    translate: 0 0;
+    transform: none;
+}
+
+/* Asymmetrical offsets */
+.container > div:nth-child(1) { translate: -50px -25px; justify-self: start; }
+.container > div:nth-child(2) { translate: 25px -45px; align-self: start; }
+.container > div:nth-child(3) { translate: -15px 10px; }
+.container > div:nth-child(4) { translate: 45px 20px; justify-self: end; }
+.container > div:nth-child(5) { translate: -70px 35px; justify-self: start; }
+.container > div:nth-child(6) { translate: 10px 55px; }
+.container > div:nth-child(7) { translate: -20px -15px; }
+.container > div:nth-child(8) { translate: 60px 40px; justify-self: end; }
+
+.container img {
+    height: auto;
+    max-height: 38vh;
+}
+
+.child1 img {
+    width: clamp(110px, 16vw, 220px);
+}
+
+.child2 img {
+    width: clamp(130px, 18vw, 260px);
+}
+
+.child1 img,
+.child2 img {
+    transform-origin: center;
+    transform: scale(1);
+    will-change: transform;
+    display: block;
+    opacity: var(--img-opacity, 1);
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.child1,
+.child2 {
+    position: relative;
+}
+
+.child1:hover img,
+.child2:hover img {
+    transform: scale(2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .child1 img,
+    .child2 img,
+    .child1,
+    .child2 {
+        transition: none;
+    }
+    .child1:hover img,
+    .child2:hover img {
+        transform: scale(2);
+    }
+}

@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("sky2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.earth-corner,
+.jupiter-corner,
+.mercury-corner,
+.neptune-corner {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+body.planets-active .earth-corner {
+  animation: orbitSpinEarth 2.2s linear infinite;
+}
+
+body.planets-active .jupiter-corner {
+  animation: orbitSpinJupiter 2.8s linear infinite 0.15s;
+}
+
+body.planets-active .mercury-corner {
+  animation: orbitSpinMercury 2.5s linear infinite 0.3s;
+}
+
+body.planets-active .neptune-corner {
+  animation: orbitSpinNeptune 2.9s linear infinite 0.45s;
+}
+
+.earth-corner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+}
+
+.jupiter-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+}
+
+.mercury-corner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+}
+
+.neptune-corner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+}
+
+@keyframes orbitSpinEarth {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(calc(100vw - 300px), calc(100vh - 300px)) rotate(540deg); }
+  100% { transform: translate(0, 0) rotate(1080deg); }
+}
+
+@keyframes orbitSpinJupiter {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(calc(-100vw + 300px), calc(100vh - 300px)) rotate(540deg); }
+  100% { transform: translate(0, 0) rotate(1080deg); }
+}
+
+@keyframes orbitSpinMercury {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(calc(100vw - 250px), calc(-100vh + 250px)) rotate(540deg); }
+  100% { transform: translate(0, 0) rotate(1080deg); }
+}
+
+@keyframes orbitSpinNeptune {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(calc(-100vw + 300px), calc(-100vh + 300px)) rotate(540deg); }
+  100% { transform: translate(0, 0) rotate(1080deg); }
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+.hover-hint {
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  color: white;
+  margin: 0;
+}
+
+.planets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.planet {
+  display: block;
+  transform: scale(0.125);
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: scale(0.125) rotate(0deg);
+  }
+  to {
+    transform: scale(0.125) rotate(360deg);
+  }
+}
